@@ -1,74 +1,41 @@
-const questions = [
-    {
-        question: "Name something you do before going to bed.",
-        answers: [
-            { text: "Brush your teeth", score: 30 },
-            { text: "Turn off the lights", score: 25 },
-            { text: "Check your phone", score: 20 },
-            { text: "Read a book", score: 15 },
-            { text: "Set your alarm", score: 10 }
-        ]
-    },
-    {
-        question: "Name something you might find in a kitchen.",
-        answers: [
-            { text: "Refrigerator", score: 35 },
-            { text: "Stove", score: 25 },
-            { text: "Sink", score: 20 },
-            { text: "Dishwasher", score: 10 },
-            { text: "Microwave", score: 5 }
-        ]
-    }
-    // You can add more questions and answers here.
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const welcomePage = document.getElementById('welcome-page');
+    const gamePage = document.getElementById('game-page');
+    const startGameBtn = document.getElementById('start-game');
+    const categories = document.querySelectorAll('.category');
+    const answers = document.querySelectorAll('.answer');
+    const pointsList = document.getElementById('points-list');
+    const totalPointsDisplay = document.getElementById('total-points');
+    let totalPoints = 0;
 
-let currentQuestionIndex = 0;
-let score = 0;
-
-const questionElement = document.getElementById('question');
-const answersContainer = document.getElementById('answers-container');
-const scoreElement = document.getElementById('score');
-const nextButton = document.getElementById('next-question');
-
-// Load the first question
-loadQuestion();
-
-function loadQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
-    
-    // Clear previous answers
-    answersContainer.innerHTML = '';
-    
-    // Create answer buttons dynamically
-    currentQuestion.answers.forEach((answer, index) => {
-        const answerDiv = document.createElement('div');
-        answerDiv.classList.add('answer');
-        answerDiv.textContent = answer.text;
-        answerDiv.style.visibility = 'visible'; // Make answers visible
-        answerDiv.addEventListener('click', () => revealAnswer(index));
-        answersContainer.appendChild(answerDiv);
+    // Start Game Button
+    startGameBtn.addEventListener('click', () => {
+        welcomePage.classList.add('hidden');
+        gamePage.classList.remove('hidden');
     });
-}
 
-function revealAnswer(index) {
-    const currentQuestion = questions[currentQuestionIndex];
-    const selectedAnswer = currentQuestion.answers[index];
-    
-    score += selectedAnswer.score;
-    scoreElement.textContent = score;
+    // Category Selection
+    categories.forEach(category => {
+        category.addEventListener('click', () => {
+            document.getElementById('question-section').classList.remove('hidden');
+            // Update question and answers based on selected category (for now, static example)
+        });
+    });
 
-    const answerDivs = document.querySelectorAll('.answer');
-    answerDivs[index].style.backgroundColor = '#28a745'; // Highlight the selected answer
-}
-
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        loadQuestion();
-    } else {
-        questionElement.textContent = "Game Over! Final Score: " + score;
-        nextButton.disabled = true;
-        answersContainer.innerHTML = ''; // Hide the answers
-    }
+    // Answer Click Event
+    answers.forEach(answer => {
+        answer.addEventListener('click', function () {
+            if (!this.classList.contains('flipped')) {
+                this.classList.add('flipped');
+                const points = parseInt(this.dataset.points);
+                totalPoints += points;
+                // Display points next to answer
+                const listItem = document.createElement('li');
+                listItem.textContent = `Answer: ${points} points`;
+                pointsList.appendChild(listItem);
+                // Update total points
+                totalPointsDisplay.textContent = totalPoints;
+            }
+        });
+    });
 });
