@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Feud Game</title>
+    <title>Premium Family Feud Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Welcome Page -->
     <div id="welcome-page" class="page">
         <h1>Welcome to Family Feud</h1>
-        <p>Test your knowledge in a fun game of Family Feud! Choose a category and start playing.</p>
+        <p>Test your knowledge in a fun, fast-paced game of Family Feud! Choose a category and start playing.</p>
         <button id="start-game-btn">Start Game</button>
     </div>
 
@@ -20,23 +21,27 @@
         <div id="category-menu">
             <h2>Choose a Category:</h2>
             <ul id="category-list">
-                <li class="category" data-category="1">Category 1: Urban Life</li>
-                <li class="category" data-category="2">Category 2: Suburban Fun</li>
-                <li class="category" data-category="3">Category 3: Food & Drinks</li>
-                <li class="category" data-category="4">Category 4: Holidays</li>
-                <li class="category" data-category="5">Category 5: Tech Trends</li>
+                <li class="category" data-category="1">Urban Life</li>
+                <li class="category" data-category="2">Suburban Fun</li>
+                <li class="category" data-category="3">Food & Drinks</li>
+                <li class="category" data-category="4">Holidays</li>
+                <li class="category" data-category="5">Tech Trends</li>
             </ul>
         </div>
 
         <!-- Question Section -->
         <div id="question-section" class="hidden">
-            <h3 id="question-text">Question: What do you often see in an urban area?</h3>
-            <div class="answers">
-                <div class="answer-card" data-points="10"><span class="front">?</span><span class="back">Traffic - 10 Points</span></div>
-                <div class="answer-card" data-points="8"><span class="front">?</span><span class="back">Skyscrapers - 8 Points</span></div>
-                <div class="answer-card" data-points="6"><span class="front">?</span><span class="back">Public Transport - 6 Points</span></div>
-                <div class="answer-card" data-points="4"><span class="front">?</span><span class="back">Street Vendors - 4 Points</span></div>
-                <div class="answer-card" data-points="2"><span class="front">?</span><span class="back">Parks - 2 Points</span></div>
+            <h3 id="question-text"></h3>
+            <div class="answers" id="answer-cards"></div>
+
+            <!-- Timer -->
+            <div id="timer-section">
+                <h3>Time Remaining: <span id="timer">30</span> seconds</h3>
+            </div>
+
+            <!-- Strikes Section -->
+            <div id="strikes-section">
+                <h3>Strikes: <span id="strikes-count">0</span></h3>
             </div>
         </div>
 
@@ -47,6 +52,9 @@
             <h3>Total Score: <span id="total-points">0</span></h3>
         </div>
     </div>
+
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="strike-sound" src="strike.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
