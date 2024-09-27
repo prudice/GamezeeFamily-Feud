@@ -3,23 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Feud Game</title>
+    <title>Family Feud</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>Family Feud</h1>
-        <div id="question-container">
-            <h2 id="question">Question will appear here</h2>
-        </div>
-        <div id="answers-container">
-            <!-- Answers will be dynamically generated here -->
-        </div>
-        <div id="score-container">
-            <h3>Score: <span id="score">0</span></h3>
-        </div>
-        <button id="next-question">Next Question</button>
+
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="page">
+        <h1>Welcome to Family Feud</h1>
+        <button id="start-game">Start Game</button>
     </div>
+
+    <!-- Game Page -->
+    <div id="game-page" class="page hidden">
+        <h1>Family Feud</h1>
+
+        <!-- Category Submenu -->
+        <div class="submenu">
+            <h2>Choose a Category:</h2>
+            <ul>
+                <li class="category" data-category="1">Category 1</li>
+                <li class="category" data-category="2">Category 2</li>
+                <li class="category" data-category="3">Category 3</li>
+                <li class="category" data-category="4">Category 4</li>
+                <li class="category" data-category="5">Category 5</li>
+            </ul>
+        </div>
+
+        <!-- Question Section -->
+        <div id="question-section" class="hidden">
+            <h3 id="question-text">Question: What do you find in suburban or urban areas?</h3>
+            <div class="answers">
+                <div class="answer" data-points="10">?</div>
+                <div class="answer" data-points="5">?</div>
+                <div class="answer" data-points="3">?</div>
+            </div>
+
+            <!-- Points Column -->
+            <div class="points-section">
+                <h3>Points</h3>
+                <ul id="points-list"></ul>
+                <h3>Total: <span id="total-points">0</span></h3>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
