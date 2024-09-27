@@ -87,6 +87,17 @@ button:hover {
     transform: rotateY(180deg);
 }
 
+/* Timer and Strikes */
+#timer-section {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#strikes-section {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
 /* Scoreboard */
 #scoreboard {
     margin-top: 20px;
