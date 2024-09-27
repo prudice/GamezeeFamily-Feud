@@ -1,47 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.hidden {
-    display: none;
-}
-
-.page {
-    padding: 50px;
-}
-
-h1 {
+h1, h2, h3 {
     color: #333;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #28a745;
     color: white;
     border: none;
+    font-size: 18px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover {
     background-color: #218838;
 }
 
-/* Submenu */
-.submenu {
-    margin: 20px 0;
+.hidden {
+    display: none;
 }
 
-.submenu ul {
+/* Categories */
+#category-menu ul {
     list-style-type: none;
     padding: 0;
 }
 
-.submenu li {
-    display: inline;
-    padding: 10px 20px;
+#category-menu li {
+    padding: 10px;
     margin: 10px;
     background-color: #007bff;
     color: white;
@@ -49,7 +42,7 @@ button:hover {
     border-radius: 5px;
 }
 
-.submenu li:hover {
+#category-menu li:hover {
     background-color: #0056b3;
 }
 
@@ -60,40 +53,47 @@ button:hover {
     margin: 30px 0;
 }
 
-.answer {
-    width: 100px;
-    height: 100px;
+.answer-card {
+    width: 150px;
+    height: 150px;
     background-color: #ddd;
+    position: relative;
     font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-    transition: transform 0.6s;
     transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
-.answer.flipped {
+.answer-card .front, .answer-card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer-card .front {
+    background-color: #eee;
+}
+
+.answer-card .back {
+    background-color: #f1c40f;
     transform: rotateY(180deg);
 }
 
-.answer::after {
-    content: '?';
-    position: absolute;
-    backface-visibility: hidden;
+.answer-card.flipped {
+    transform: rotateY(180deg);
 }
 
-/* Points Section */
-.points-section {
+/* Scoreboard */
+#scoreboard {
     margin-top: 20px;
 }
 
 #points-list {
     list-style-type: none;
     padding: 0;
-}
-
-#points-list li {
-    margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
