@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Feud</title>
+    <title>Family Feud Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Welcome Page -->
     <div id="welcome-page" class="page">
         <h1>Welcome to Family Feud</h1>
-        <button id="start-game">Start Game</button>
+        <p>Test your knowledge in a fun game of Family Feud! Choose a category and start playing.</p>
+        <button id="start-game-btn">Start Game</button>
     </div>
 
     <!-- Game Page -->
     <div id="game-page" class="page hidden">
         <h1>Family Feud</h1>
-
-        <!-- Category Submenu -->
-        <div class="submenu">
+        <div id="category-menu">
             <h2>Choose a Category:</h2>
-            <ul>
-                <li class="category" data-category="1">Category 1</li>
-                <li class="category" data-category="2">Category 2</li>
-                <li class="category" data-category="3">Category 3</li>
-                <li class="category" data-category="4">Category 4</li>
-                <li class="category" data-category="5">Category 5</li>
+            <ul id="category-list">
+                <li class="category" data-category="1">Category 1: Urban Life</li>
+                <li class="category" data-category="2">Category 2: Suburban Fun</li>
+                <li class="category" data-category="3">Category 3: Food & Drinks</li>
+                <li class="category" data-category="4">Category 4: Holidays</li>
+                <li class="category" data-category="5">Category 5: Tech Trends</li>
             </ul>
         </div>
 
         <!-- Question Section -->
         <div id="question-section" class="hidden">
-            <h3 id="question-text">Question: What do you find in suburban or urban areas?</h3>
+            <h3 id="question-text">Question: What do you often see in an urban area?</h3>
             <div class="answers">
-                <div class="answer" data-points="10">?</div>
-                <div class="answer" data-points="5">?</div>
-                <div class="answer" data-points="3">?</div>
+                <div class="answer-card" data-points="10"><span class="front">?</span><span class="back">Traffic - 10 Points</span></div>
+                <div class="answer-card" data-points="8"><span class="front">?</span><span class="back">Skyscrapers - 8 Points</span></div>
+                <div class="answer-card" data-points="6"><span class="front">?</span><span class="back">Public Transport - 6 Points</span></div>
+                <div class="answer-card" data-points="4"><span class="front">?</span><span class="back">Street Vendors - 4 Points</span></div>
+                <div class="answer-card" data-points="2"><span class="front">?</span><span class="back">Parks - 2 Points</span></div>
             </div>
+        </div>
 
-            <!-- Points Column -->
-            <div class="points-section">
-                <h3>Points</h3>
-                <ul id="points-list"></ul>
-                <h3>Total: <span id="total-points">0</span></h3>
-            </div>
+        <!-- Points Section -->
+        <div id="scoreboard">
+            <h2>Points</h2>
+            <ul id="points-list"></ul>
+            <h3>Total Score: <span id="total-points">0</span></h3>
         </div>
     </div>
 
