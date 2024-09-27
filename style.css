@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.game-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#score-container {
+    margin-top: 20px;
+}
+
+#next-question {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
